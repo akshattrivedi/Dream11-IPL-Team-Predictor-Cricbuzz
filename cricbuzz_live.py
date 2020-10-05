@@ -5,13 +5,15 @@ import common_utils as commonUtils
 
 def getCurrentIplMatch():
     cricbuzz = Cricbuzz()
+    iplMatchFoundFlag = False
     matches = cricbuzz.matches()
     maxMatchID = None
     currentIplMatch = {}
 
     for match in matches:
-        if match["srs"] == "Indian Premier League 2020" and match["toss"] != "" :
+        if match["srs"] == "Indian Premier League 2020" and match["toss"] != "":
             matchID = match["id"]
+            iplMatchFoundFlag = True
 
             if maxMatchID is None:
                 maxMatchID = matchID
@@ -19,6 +21,10 @@ def getCurrentIplMatch():
             elif matchID > maxMatchID:
                 maxMatchID = matchID
                 currentIplMatch = match
+    
+    if not iplMatchFoundFlag:
+        print("404! No Live IPL Match Found!")
+        exit(0)
 
     return currentIplMatch
 
@@ -44,7 +50,7 @@ def getCurrentMatchPlayers(iplMatch):
                 
 
         if not players:
-                print("SQUAD NOT DECIDED YET!")
+            print("SQUAD NOT DECIDED YET!")
         else:
             squadFoundFlag = True
 
