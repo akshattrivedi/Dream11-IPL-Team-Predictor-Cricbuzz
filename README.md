@@ -1,5 +1,5 @@
-# dream11-ipl-team-predictor-cricbuzz
-Dream 11 IPL Cricket Team Predictor (CricBuzz)
+# Dream11 IPL Team Predictor
+Dream 11 IPL Cricket Team Predictor using CricBuzz
 
 ## Usage
 
